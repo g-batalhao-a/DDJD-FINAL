@@ -65,11 +65,33 @@
                 },
                 {
                     "name": "",
+                    "id": "803d5d1a-f2ca-49b9-8c43-bd726a18a71b",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Blue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "03ebf975-8eea-4375-bbc9-1e95b4fefc12",
                     "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button4",
                     "interactions": "",
                     "processors": "",
                     "groups": "Buzz",
+                    "action": "Orange",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "95137a11-5d7d-4e2f-a618-e89b05f5fc58",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
                     "action": "Orange",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -87,6 +109,17 @@
                 },
                 {
                     "name": "",
+                    "id": "3f32bd40-279f-4e0a-8021-1b3517fd6f46",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Green",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "7394ee82-269d-4b82-9101-d79927e2caee",
                     "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button2",
                     "interactions": "",
@@ -98,11 +131,33 @@
                 },
                 {
                     "name": "",
+                    "id": "df85b67b-39ae-48c7-9f12-7baa4a8ec5d5",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Yellow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d49bbd46-b3a8-4f07-9691-6ad9c0b941dc",
                     "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/trigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Buzz",
+                    "action": "Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "be5d0122-363a-42be-95ed-74375f8e5e5d",
+                    "path": "<Keyboard>/1",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "PC",
                     "action": "Action",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -173,11 +228,33 @@
                 },
                 {
                     "name": "",
+                    "id": "eee6ba7d-9e54-406b-9154-b1ac3d95c11a",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Blue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "a0b74991-3ee7-47da-af82-854627c7adea",
                     "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button9",
                     "interactions": "",
                     "processors": "",
                     "groups": "Buzz",
+                    "action": "Orange",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cb53d8cd-97a9-433d-a76f-5e7915cb01ea",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
                     "action": "Orange",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -195,6 +272,17 @@
                 },
                 {
                     "name": "",
+                    "id": "3eeb176f-34ee-4017-b238-88c7f1420cba",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Green",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1f44d415-5a34-4013-817b-2b13138951fc",
                     "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button7",
                     "interactions": "",
@@ -206,11 +294,33 @@
                 },
                 {
                     "name": "",
+                    "id": "7f6a5d9b-9284-43d5-8dd6-879c6f9e7674",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Yellow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d57837f7-c16d-404a-80c6-193d0626a166",
                     "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button6",
                     "interactions": "",
                     "processors": "",
                     "groups": "Buzz",
+                    "action": "Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "08878a52-a9d6-4c1a-a6a3-b93f7b08be8c",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
                     "action": "Action",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -281,11 +391,33 @@
                 },
                 {
                     "name": "",
+                    "id": "c80719f8-70e8-4d74-9c6c-f549fba7f3ce",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Blue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "8cf6463d-2d7c-4d9c-89d2-5df35abd7d5d",
                     "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button14",
                     "interactions": "",
                     "processors": "",
                     "groups": "Buzz",
+                    "action": "Orange",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e86c8190-23af-40b7-acf5-ba9993939854",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
                     "action": "Orange",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -303,6 +435,17 @@
                 },
                 {
                     "name": "",
+                    "id": "fde6be9e-387d-4582-8f35-c180459301b9",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Green",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "bb44edf2-3b73-4937-b76f-0a75649cd834",
                     "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button12",
                     "interactions": "",
@@ -314,11 +457,33 @@
                 },
                 {
                     "name": "",
+                    "id": "c731b1ab-650c-4140-8739-ae3e2cd107ff",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Yellow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "08860dd8-68cd-49f5-9629-5a13827ad909",
                     "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button11",
                     "interactions": "",
                     "processors": "",
                     "groups": "Buzz",
+                    "action": "Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "72543b62-8d3d-4c7b-8335-70b948418dc5",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
                     "action": "Action",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -389,11 +554,33 @@
                 },
                 {
                     "name": "",
+                    "id": "a92999d9-74db-4993-9ca8-6b15b60b4ac4",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Blue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "7ef6d312-5e33-44cf-8ee1-92c131e4611e",
                     "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button19",
                     "interactions": "",
                     "processors": "",
                     "groups": "Buzz",
+                    "action": "Orange",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "64117863-5aac-4d73-87ea-f13c76c88904",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
                     "action": "Orange",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -411,6 +598,17 @@
                 },
                 {
                     "name": "",
+                    "id": "237bdffe-9be8-456c-b7b9-7937caa412f0",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Green",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "a31011f6-5f33-41e9-be73-a1c2d1935eed",
                     "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button17",
                     "interactions": "",
@@ -422,11 +620,33 @@
                 },
                 {
                     "name": "",
+                    "id": "af981b24-10fe-479c-b563-c73b779b8059",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Yellow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "61e22d7c-d456-49cd-a8fb-44d690321a79",
                     "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button16",
                     "interactions": "",
                     "processors": "",
                     "groups": "Buzz",
+                    "action": "Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2db64071-41c7-4fd6-b83c-067804b458dc",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
                     "action": "Action",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -442,6 +662,17 @@
                 {
                     "devicePath": "<HID::Logitech Logitech Buzz(tm) Controller V1>",
                     "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "PC",
+            "bindingGroup": "PC",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": true,
                     "isOR": false
                 }
             ]
