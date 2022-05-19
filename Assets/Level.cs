@@ -48,16 +48,25 @@ public class Level : MonoBehaviour
             return;
         }
 
-        if(Input.GetKeyDown(KeyCode.A))
+        if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.L))
         {
-            Debug.Log("Player Left won");
-            SetScore(playerLeft);
-            updateRound(++currentRound);
-        }else if(Input.GetKeyDown(KeyCode.L))
-        {
-            Debug.Log("Player Right won");
-            SetScore(playerRight);
-            updateRound(++currentRound);
+            if(Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.L))
+            {
+                Debug.Log("There was a tie!");
+            }
+            else if(Input.GetKeyDown(KeyCode.A))
+            {
+                Debug.Log("Player Left won");
+                SetScore(playerLeft);
+                currentRound++;    
+            }
+            else if(Input.GetKeyDown(KeyCode.L))
+            {
+                Debug.Log("Player Right won");
+                SetScore(playerRight);
+                currentRound++;
+            }
+            updateRound(currentRound);
         }
     }
 
@@ -138,14 +147,6 @@ public class Level : MonoBehaviour
         Debug.Log("Player " + ((playerNumber == playerLeft) ? playerRight : playerLeft) + " lost the round");
         
     }
-
-    // private void Restart()
-    // {
-    //     winnerPlayer = -1;
-    //     StartCoroutine(DoRound());
-    //     Debug.Log("Restarted!");
-    //     Debug.Log("Get Ready...");
-    // }
 
     private IEnumerator DoRound()
     {
