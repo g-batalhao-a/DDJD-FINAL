@@ -17,9 +17,15 @@ public class NoteObject : MonoBehaviour
     {
         if(Input.GetKeyDown(key)) {
             if(canBePressed)
-                gameObject.SetActive(false);
+                if(gameObject.tag=="clone")
+                    Destroy(gameObject);
+                else
+                    gameObject.SetActive(false);
         }
-            
+
+
+        if(gameObject.transform.position.y <= -2.5 && gameObject.tag=="clone")
+                Destroy(gameObject);
         
     }
 
@@ -29,7 +35,9 @@ public class NoteObject : MonoBehaviour
     }
 
     private void OnTriggerExit(Collider other) {
-        if(other.tag=="GameController")
+        if(other.tag=="GameController"){
             canBePressed = false;
+        }
+
     }
 }
