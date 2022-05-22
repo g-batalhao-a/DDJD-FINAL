@@ -27,8 +27,9 @@ public class NoteGeneration : MonoBehaviour
             time+=Time.deltaTime;
             int rand = Random.Range(0,100);
             
-            if(rand > 10 && time >= 1f){
+            if(rand >= 10 && time >= 1f){
                 GameObject clone = Instantiate(note, transform.position, Quaternion.identity, scroller.transform);
+                clone.name= clone.name.Replace("(Clone)", "C");
                 clone.tag = "clone";
                 time=0;
             }

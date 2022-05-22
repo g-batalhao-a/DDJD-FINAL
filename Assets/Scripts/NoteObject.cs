@@ -4,23 +4,33 @@ using UnityEngine;
 
 public class NoteObject : MonoBehaviour
 {
+    private GameLogic gameLogic = null;
     public bool canBePressed;
     [SerializeField] private KeyCode key;
+    private bool penalty;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameLogic = GameObject.Find("Canvas").GetComponent<GameLogic>();
+        penalty=false;
     }
 
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(key)) {
-            if(canBePressed)
-                if(gameObject.tag=="clone")
-                    Destroy(gameObject);
-                else
-                    gameObject.SetActive(false);
+            if(canBePressed){
+                onAction();
+                Destroy(gameObject);
+            }
+            else
+            {
+                /*
+                onPenalty();
+                penalty=true;
+                disableKey();*/
+            }
+                
         }
 
 
@@ -38,6 +48,18 @@ public class NoteObject : MonoBehaviour
         if(other.tag=="GameController"){
             canBePressed = false;
         }
+    }
 
+    public void onAction() {
+        if (gameLogic) gameLogic.playerAction(this.name, this.transform.position.y);
+    }
+
+    public void onPenalty() {
+        if(gameLogic) gameLogic.playerPenalty(this.name);
+    }
+
+    private IEnumerator disableKey() {
+        yield return new WaitForSeconds(2f);
+        penalty=false;
     }
 }
