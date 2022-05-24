@@ -18,7 +18,7 @@ public class NoteGeneration : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!hasStarted){
+        if(!hasStarted) {
             if(Input.anyKeyDown) {
                 hasStarted=true;
             }
@@ -26,8 +26,8 @@ public class NoteGeneration : MonoBehaviour
         else {
             time+=Time.deltaTime;
             int rand = Random.Range(0,100);
-            
-            if(rand >= 10 && time >= 1f){
+
+            if(rand >= 10 && time >= 1f) {
                 GameObject clone = Instantiate(note, transform.position, Quaternion.identity, scroller.transform);
                 clone.name= clone.name.Replace("(Clone)", "C");
                 clone.tag = "clone";

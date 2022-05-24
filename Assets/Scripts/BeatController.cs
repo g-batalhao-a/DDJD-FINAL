@@ -21,7 +21,7 @@ public class BeatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!hasStarted){
+        if(!hasStarted) {
             if(Input.anyKeyDown) {
                 hasStarted=true;
                 StartCoroutine(UpdateTimer());
@@ -45,7 +45,7 @@ public class BeatController : MonoBehaviour
         }
     }
 
-    private void endGame(){
+    private void endGame() {
         UnityEditor.EditorApplication.isPlaying = false;
     }
 }

@@ -19,7 +19,7 @@ public class NoteObject : MonoBehaviour
 
         if(gameObject.transform.position.y <= -2.5 && gameObject.tag=="clone")
             Destroy(gameObject);
-        
+
     }
 
 
@@ -28,6 +28,6 @@ public class NoteObject : MonoBehaviour
         Destroy(gameObject);
     }
 
-    
+
 
 }

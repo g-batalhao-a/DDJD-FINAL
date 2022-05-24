@@ -25,14 +25,14 @@ public class ButtonController : MonoBehaviour
     {
         if(Input.GetKeyDown(key)) {
             currentMaterial.material = newMaterial;
-            if(ball){
+            if(ball) {
                 ball.onAction();
                 ball=null;
             }
             else
                 onPenalty();
         }
-        
+
         if(Input.GetKeyUp(key))
         {
             currentMaterial.material = defaultMaterial;
@@ -42,11 +42,11 @@ public class ButtonController : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if(other.tag=="clone")
             ball=other.GetComponent<NoteObject>();
-        
+
     }
 
     private void OnTriggerExit(Collider other) {
-        if(other.tag=="clone"){
+        if(other.tag=="clone") {
             ball = null;
         }
     }
