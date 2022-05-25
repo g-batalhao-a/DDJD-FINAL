@@ -4,25 +4,25 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ScoreUIManager : TextUpdate
+public class TextUpdate : MonoBehaviour
 {
-    private int score = 0;
+    [SerializeField] protected string beforeText = "";
+
     // Start is called before the first frame update
     void Start()
     {
-        // Change text
-        GetComponent<TextMeshProUGUI>().text = this.beforeText + score;
         
     }
 
     // Update is called once per frame
     void Update()
     {
+        
     }
 
-    public void SetScore(int score)
+    public void SetText(string text)
     {
-        this.score = score;
-        this.SetText(score.ToString());
+        // Change text
+        GetComponent<TextMeshProUGUI>().text = beforeText + text;
     }
 }

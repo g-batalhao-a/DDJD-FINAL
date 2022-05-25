@@ -6,6 +6,8 @@ enum GunMiniGameState {
     Preparing,
     WaitingForCountdown,
     WaitingforPlayerToFire,
+
+    WaitingForNextRound,
     Finished
 }
 
@@ -15,7 +17,6 @@ public class Level : MonoBehaviour
     private int playerRight = 2;
     private int playerBenchLeft = 3;
     private int playerBenchRight = 4;
-    
     private int[] winners = new int[4];
     private int[] losers = new int[4];
     private Vector3 playerLeftPosition;
@@ -25,6 +26,9 @@ public class Level : MonoBehaviour
     private GameObject[] players;
     private GameObject[] scoresGUI;
     private int[] scores = new int[4];
+    private GameObject roundGUI;
+    private GameObject waitGoGUI;
+    
     
     private GunMiniGameState currentState = GunMiniGameState.Preparing;
     private int currentRound = 1;
@@ -32,6 +36,9 @@ public class Level : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Get game object with name Round
+        roundGUI = GameObject.Find("Round");
+        waitGoGUI = GameObject.Find("Wait Go");
         players = GameObject.FindGameObjectsWithTag("Player");
         scoresGUI = GameObject.FindGameObjectsWithTag("Score");
         playerLeftPosition = players[0].transform.position;
@@ -46,31 +53,44 @@ public class Level : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(currentState != GunMiniGameState.WaitingforPlayerToFire) 
+
+        if(currentState == GunMiniGameState.WaitingForNextRound)
         {
-            return;
+            if(Input.GetKeyDown(KeyCode.N))
+            {
+                updateRound(currentRound);
+                return;
+            }
         }
 
-        if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.L))
+        if(currentState == GunMiniGameState.WaitingforPlayerToFire) 
         {
-            if(Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.L))
+            if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.L))
             {
-                Debug.Log("There was a tie!");
+                if(Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.L))
+                {
+
+                    Debug.Log("There was a tie!");
+                }
+                else if(Input.GetKeyDown(KeyCode.A))
+                {
+                    SetGUIText(waitGoGUI, "Player Left Won");
+                    SetScore(playerLeft);
+                    currentRound++;    
+                }
+                else if(Input.GetKeyDown(KeyCode.L))
+                {
+                    SetGUIText(waitGoGUI, "Player Right Won");
+                    SetScore(playerRight);
+                    currentRound++;
+                }
+                currentState = GunMiniGameState.WaitingForNextRound;
             }
-            else if(Input.GetKeyDown(KeyCode.A))
-            {
-                Debug.Log("Player Left won");
-                SetScore(playerLeft);
-                currentRound++;    
-            }
-            else if(Input.GetKeyDown(KeyCode.L))
-            {
-                Debug.Log("Player Right won");
-                SetScore(playerRight);
-                currentRound++;
-            }
-            updateRound(currentRound);
         }
+
+        
+
+
     }
 
 
@@ -101,8 +121,6 @@ public class Level : MonoBehaviour
                 playerRight = 4;
                 playerBenchLeft = 1;
                 playerBenchRight = 2;
-                
-
                 break;
             case 3:
                 Debug.Log("Prepare for the third round");
@@ -122,12 +140,13 @@ public class Level : MonoBehaviour
             default:
                 break;
         }
-        Debug.Log("Player Left: " + playerLeft);
-        Debug.Log("Player Right: " + playerRight);
-        updatePlayers();
+        
+        UpdatePlayers();
+
+        UpdateGUI();
     }
 
-    private void updatePlayers()
+    private void UpdatePlayers()
     {
 
         UpdatePlayersPosition();
@@ -142,13 +161,18 @@ public class Level : MonoBehaviour
         players[playerBenchRight - 1].transform.position = playerBenchRightPosition;
     }
 
+    private void UpdateGUI()
+    {
+        // Call method SetText from roundGUI
+        SetGUIText(roundGUI, "Round " + currentRound);
+        SetGUIText(waitGoGUI, "Wait for go...");
+    }
+
     public void SetScore(int playerNumber)
     {        
         winners[currentRound - 1] = playerNumber;
         losers[currentRound - 1] = (playerNumber == playerLeft) ? playerRight : playerLeft;
-        Debug.Log("Player " + playerNumber + " won the round");
-        Debug.Log("Player " + ((playerNumber == playerLeft) ? playerRight : playerLeft) + " lost the round");
-
+        
         if (currentRound == 1 || currentRound == 2)
         {
             scores[playerNumber - 1] += 2;
@@ -180,16 +204,18 @@ public class Level : MonoBehaviour
         yield return new WaitForSeconds(countdown);
         
         currentState = GunMiniGameState.WaitingforPlayerToFire;
-        Debug.Log("GOOOOOO");
+        SetGUIText(waitGoGUI, "GO!!!");
+
     }
 
     private void FinishGame()
     {
         currentState = GunMiniGameState.Finished;
-        Debug.Log("Winner1: " + winners[3]);
-        Debug.Log("Winner2: " + losers[3]);
-        Debug.Log("Winner3: " + winners[2]);
-        Debug.Log("Winner4: " + losers[2]);
-        
+        SetGUIText(waitGoGUI, "Player " + winners[3] + " won!");        
+    }
+
+    private void SetGUIText(GameObject guiObj, string text)
+    {
+        guiObj.GetComponent<TextUpdate>().SetText(text);
     }
 }
