@@ -67,29 +67,33 @@ public class Level : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.L))
             {
+                int winner = 0;
+
                 if(Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.L))
                 {
 
-                    Debug.Log("There was a tie!");
+                    SetGUIText(waitGoGUI, "It was a tie!\nPress N to repeat");
+                    currentState = GunMiniGameState.WaitingForNextRound;
+                    return;
+
                 }
                 else if(Input.GetKeyDown(KeyCode.A))
                 {
-                    SetGUIText(waitGoGUI, "Player Left Won");
-                    SetScore(playerLeft);
-                    currentRound++;    
+                    winner = playerLeft;
+
                 }
                 else if(Input.GetKeyDown(KeyCode.L))
-                {
-                    SetGUIText(waitGoGUI, "Player Right Won");
-                    SetScore(playerRight);
-                    currentRound++;
+                {   
+                    winner = playerRight;
                 }
+
+                SetGUIText(waitGoGUI, "Player " + winner + " Won\nPress N to continue");
+                SetScore(winner);
+                currentRound++;
                 currentState = GunMiniGameState.WaitingForNextRound;
+
             }
         }
-
-        
-
 
     }
 
@@ -113,24 +117,20 @@ public class Level : MonoBehaviour
         switch (round)
         {
             case 1:
-                Debug.Log("Prepare for the first round");
-                return;
+                break;
             case 2:
-                Debug.Log("Prepare for the second round");
                 playerLeft = 3;
                 playerRight = 4;
                 playerBenchLeft = 1;
                 playerBenchRight = 2;
                 break;
             case 3:
-                Debug.Log("Prepare for the third round");
                 playerLeft = losers[0];
                 playerRight = losers[1];
                 playerBenchLeft = winners[0];
                 playerBenchRight = winners[1];
                 break;
             case 4:
-                Debug.Log("Prepare for the forth round");
                 playerLeft = winners[0];
                 playerRight = winners[1];
                 playerBenchLeft = losers[0];
