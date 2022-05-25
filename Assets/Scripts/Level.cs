@@ -23,6 +23,8 @@ public class Level : MonoBehaviour
     private Vector3 playerBenchLeftPosition;
     private Vector3 playerBenchRightPosition;
     private GameObject[] players;
+    private GameObject[] scoresGUI;
+    private int[] scores = new int[4];
     
     private GunMiniGameState currentState = GunMiniGameState.Preparing;
     private int currentRound = 1;
@@ -31,6 +33,7 @@ public class Level : MonoBehaviour
     void Start()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
+        scoresGUI = GameObject.FindGameObjectsWithTag("Score");
         playerLeftPosition = players[0].transform.position;
         playerRightPosition = players[1].transform.position;
         playerBenchLeftPosition = players[2].transform.position;
@@ -145,7 +148,28 @@ public class Level : MonoBehaviour
         losers[currentRound - 1] = (playerNumber == playerLeft) ? playerRight : playerLeft;
         Debug.Log("Player " + playerNumber + " won the round");
         Debug.Log("Player " + ((playerNumber == playerLeft) ? playerRight : playerLeft) + " lost the round");
-        
+
+        if (currentRound == 1 || currentRound == 2)
+        {
+            scores[playerNumber - 1] += 2;
+
+        }else if (currentRound == 3)
+        {
+            scores[playerNumber - 1] += 1;
+
+        }else if (currentRound == 4)
+        {
+            scores[playerNumber - 1] += 3;
+        }
+
+
+        UpdateGUIScore(playerNumber);
+    }
+    
+    private void UpdateGUIScore(int playerNumber)
+    {
+        scoresGUI[playerNumber - 1].GetComponent<ScoreUIManager>().SetScore(scores[playerNumber - 1]);
+
     }
 
     private IEnumerator DoRound()
