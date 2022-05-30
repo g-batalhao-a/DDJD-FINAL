@@ -7,8 +7,10 @@ public class Player : MonoBehaviour
     [SerializeField] private int playerNumber;
     private Vector3 startPosition;
     private Vector3 endPosition;
+    private Quaternion startRotation;
+    private Quaternion endRotation;
     private bool isMoving = false;
-    private int interpolationFramesCount = 45;
+    private int interpolationFramesCount = 120;
     private int elapsedFrames = 0; 
     // Start is called before the first frame update
     void Start()
@@ -31,11 +33,12 @@ public class Player : MonoBehaviour
             float interpolationRatio = (float)elapsedFrames / interpolationFramesCount;
 
             transform.position = Vector3.Lerp(startPosition, endPosition, interpolationRatio);
+            transform.rotation = Quaternion.Lerp(startRotation, endRotation, interpolationRatio);
             elapsedFrames++;
         }
     }
 
-    public void GoToPosition(Vector3 position)
+    public void GoToPosition(Vector3 position, Quaternion rotation)
     {
         if(position == transform.position)
         {
@@ -44,6 +47,8 @@ public class Player : MonoBehaviour
         
         startPosition = transform.position;
         endPosition = position;
+        startRotation = transform.rotation;
+        endRotation = rotation;
 
         isMoving = true;
     }

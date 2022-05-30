@@ -161,10 +161,10 @@ public class Level : MonoBehaviour
 
     private void UpdatePlayersPosition()
     {
-        players[playerLeft - 1].GetComponent<Player>().GoToPosition(playerLeftPosition);
-        players[playerRight - 1].GetComponent<Player>().GoToPosition(playerRightPosition);
-        players[playerBenchLeft - 1].GetComponent<Player>().GoToPosition(playerBenchLeftPosition);
-        players[playerBenchRight - 1].GetComponent<Player>().GoToPosition(playerBenchRightPosition);
+        players[playerLeft - 1].GetComponent<Player>().GoToPosition(playerLeftPosition, Quaternion.Euler(0, 0, 0));
+        players[playerRight - 1].GetComponent<Player>().GoToPosition(playerRightPosition, Quaternion.Euler(0, 180, 0));
+        players[playerBenchLeft - 1].GetComponent<Player>().GoToPosition(playerBenchLeftPosition, Quaternion.Euler(0, 90, 0));
+        players[playerBenchRight - 1].GetComponent<Player>().GoToPosition(playerBenchRightPosition, Quaternion.Euler(0, 90, 0));
 
     }
 
