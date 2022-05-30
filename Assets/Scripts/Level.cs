@@ -58,6 +58,7 @@ public class Level : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.N))
             {
+
                 updateRound(currentRound);
                 return;
             }
@@ -105,7 +106,12 @@ public class Level : MonoBehaviour
             FinishGame();
             return;
         }
+
+
         currentState = GunMiniGameState.Preparing;
+        
+
+
         Debug.Log("Round " + round);
 
         PrepareRound(round);
@@ -155,10 +161,11 @@ public class Level : MonoBehaviour
 
     private void UpdatePlayersPosition()
     {
-        players[playerLeft - 1].transform.position = playerLeftPosition;
-        players[playerRight - 1].transform.position = playerRightPosition;
-        players[playerBenchLeft - 1].transform.position = playerBenchLeftPosition;
-        players[playerBenchRight - 1].transform.position = playerBenchRightPosition;
+        players[playerLeft - 1].GetComponent<Player>().GoToPosition(playerLeftPosition);
+        players[playerRight - 1].GetComponent<Player>().GoToPosition(playerRightPosition);
+        players[playerBenchLeft - 1].GetComponent<Player>().GoToPosition(playerBenchLeftPosition);
+        players[playerBenchRight - 1].GetComponent<Player>().GoToPosition(playerBenchRightPosition);
+
     }
 
     private void UpdateGUI()

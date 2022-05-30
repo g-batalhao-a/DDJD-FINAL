@@ -5,17 +5,46 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private int playerNumber;
-
-    private Level level;
+    private Vector3 startPosition;
+    private Vector3 endPosition;
+    private bool isMoving = false;
+    private int interpolationFramesCount = 45;
+    private int elapsedFrames = 0; 
     // Start is called before the first frame update
     void Start()
     {
-        level = transform.parent.gameObject.GetComponent<Level>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Stop player from moving when
+        if(elapsedFrames > interpolationFramesCount)
+        {  
+            Debug.Log("STOPED");
+            elapsedFrames = 0;
+            isMoving = false;
+        }
 
+        if(isMoving){
+            
+            float interpolationRatio = (float)elapsedFrames / interpolationFramesCount;
+
+            transform.position = Vector3.Lerp(startPosition, endPosition, interpolationRatio);
+            elapsedFrames++;
+        }
+    }
+
+    public void GoToPosition(Vector3 position)
+    {
+        if(position == transform.position)
+        {
+            return;
+        }
+        
+        startPosition = transform.position;
+        endPosition = position;
+
+        isMoving = true;
     }
 }
