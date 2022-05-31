@@ -28,13 +28,19 @@ public class Player : MonoBehaviour
             isMoving = false;
         }
 
+        if(isMoving)
+        {
+            elapsedFrames++;
+        }
+    }
+
+    void FixedUpdate() {
         if(isMoving){
             
             float interpolationRatio = (float)elapsedFrames / interpolationFramesCount;
 
             transform.position = Vector3.Lerp(startPosition, endPosition, interpolationRatio);
             transform.rotation = Quaternion.Lerp(startRotation, endRotation, interpolationRatio);
-            elapsedFrames++;
         }
     }
 
